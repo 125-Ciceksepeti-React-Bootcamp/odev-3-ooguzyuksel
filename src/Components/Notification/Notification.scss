@@ -1,0 +1,38 @@
+@import "../Variables/variables";
+
+.notification {
+  // width: 100%;
+  // height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.notification__panel {
+  background-color: $lightBluishColor;
+  position: fixed;
+  right: 25px;
+  bottom: 50px;
+  padding: 15px;
+  border-radius: 15px;
+  display: none;
+  z-index: 10;
+}
+
+.positionChanger {
+  display: block;
+}
+
+.round-time-bar div {
+  height: 5px;
+  background: linear-gradient(to bottom, #fff, $darkerBlueColor);
+  --duration: 3;
+  animation: roundtime calc(var(--duration) * 1s) steps(var(--duration))
+    forwards;
+  transform-origin: left center;
+}
+
+@keyframes roundtime {
+  to {
+    transform: scaleX(0);
+  }
+}

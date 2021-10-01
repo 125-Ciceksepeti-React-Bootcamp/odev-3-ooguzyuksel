@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import Cards from "./Components/Cards/Cards";
 
 function App() {
+  const url =
+    "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=sACXqMVk1uBksrYlMalibmxYh70pHqRQ";
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => setBooks(...books, data.results.books));
+  }, []);
+
+  const deleteBook = (rank) => {
+    const filteredBook = books.filter((book) => book.rank !== rank);
+    setBooks(filteredBook);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Cards books={books} deleteBook={deleteBook} />
     </div>
   );
 }

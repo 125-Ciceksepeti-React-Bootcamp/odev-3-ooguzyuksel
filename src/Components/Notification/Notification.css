@@ -1,0 +1,45 @@
+.notification {
+  position: relative;
+  overflow: hidden;
+}
+
+.notification__panel {
+  background-color: #02a0da;
+  position: fixed;
+  right: 25px;
+  bottom: 50px;
+  padding: 15px;
+  border-radius: 15px;
+  display: none;
+  z-index: 10;
+}
+
+.positionChanger {
+  display: block;
+}
+
+.round-time-bar div {
+  height: 5px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#1e3e69));
+  background: linear-gradient(to bottom, #fff, #1e3e69);
+  --duration: 3;
+  -webkit-animation: roundtime calc(var(--duration) * 1s) steps(var(--duration)) forwards;
+          animation: roundtime calc(var(--duration) * 1s) steps(var(--duration)) forwards;
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+}
+
+@-webkit-keyframes roundtime {
+  to {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+}
+
+@keyframes roundtime {
+  to {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+}
+/*# sourceMappingURL=Notification.css.map */
